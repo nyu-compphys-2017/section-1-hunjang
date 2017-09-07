@@ -1,6 +1,6 @@
 # This is a python file! The '#' character indicates that the following line is a comment.
 
-from_future_ import division
+from __future__ import division
 import numpy as np
 
 
@@ -20,8 +20,13 @@ def hello_world(name=''):
 #Implement the Riemann Sum approximation for integrals.
 def riemann(a,b,N,fn):
    width = (b-a)/N
-   x_vals = np.arrange(a+width,b+width,width)
+   x_vals = np.arange(a+width,b+width,width)
    fn_values = fn(x_vals)
    result = np.sum(width*fn_values)
+   print result
    return result
 
+def fn(x):
+    return x
+
+riemann(0,1,50,fn)
